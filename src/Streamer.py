@@ -12,9 +12,9 @@ def StreamForever(stream,**kwargs):
         return
     while True:
         try:
-            if locations in kwargs:
+            if 'locations' in kwargs:
                 stream.statuses.filter(locations=kwargs['locations'])
-            elif track in kwargs:
+            elif 'track' in kwargs:
                 stream.statuses.filter(track=kwargs['track'])
         except KeyboardInterrupt:
             print("Ctrl+C Caught, ByeBye!")
