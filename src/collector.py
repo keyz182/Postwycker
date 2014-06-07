@@ -33,8 +33,8 @@ stream = SentinelStreamer(twitter_auth=twitter_auth,
 
 if COLLECTION_TYPE == 'geo':
     BBOX = os.environ['BBOX']
-    StreamForever(stream,BBOX)
+    StreamForever(stream,locations=BBOX)
 else:
     TERMS = os.environ['SEARCHTERMS']
-    print(TERMS)
+    StreamForever(stream, track=TERMS)
 
