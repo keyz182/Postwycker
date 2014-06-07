@@ -1,0 +1,16 @@
+INSTANCE_NAME="postwycker"
+
+TWITTER_APP_KEY="123"
+TWITTER_APP_SECRET="456"
+TWITTER_OAUTH_TOKEN="abc"
+TWITTER_OAUTH_TOKEN_SECRET="def"
+
+COLLECTION_TYPE="geo" #geo or terms
+
+#geo
+BBOX="-4.4289,51.3484,-2.7684,52.0228"
+
+#terms
+SEARCHTERMS="docker, python, twitter"
+
+TABLE_NAME="tweets"
