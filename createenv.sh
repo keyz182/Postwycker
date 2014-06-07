@@ -5,7 +5,9 @@ if [[ ! -f settings.conf ]]; then
 fi
 source settings.conf
 
-PSQLCONTAINER=$(docker run --name $INSTANCE_NAME-postgres -d -P postgis21)
+docker build -t postwycker .
+
+PSQLCONTAINER=$(docker run --name $INSTANCE_NAME-postgres -d -P keyz182/postgis21)
 echo $PSQLCONTAINER
 #COLLECTOR_CONTAINER=$(
 docker run -d --name $INSTANCE_NAME-collector --link $INSTANCE_NAME-postgres:postgis21 \
