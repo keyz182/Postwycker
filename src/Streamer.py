@@ -7,10 +7,15 @@ from datetime import datetime
 import time
 from twython import TwythonStreamer
 
-def StreamForever(stream,location):
+def StreamForever(stream,**kwargs):
+    if kwargs is None:
+        return
     while True:
         try:
-            stream.statuses.filter(locations=location)
+            if locations in kwargs:
+                stream.statuses.filter(locations=kwargs['locations'])
+            elif track in kwargs:
+                stream.statuses.filter(track=kwargs['track'])
         except KeyboardInterrupt:
             print("Ctrl+C Caught, ByeBye!")
             sys.exit()
