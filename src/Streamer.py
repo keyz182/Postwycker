@@ -12,7 +12,9 @@ def StreamForever(stream,**kwargs):
         return
     while True:
         try:
-            if 'locations' in kwargs:
+            if 'locations' in kwargs and 'track' in kwargs:
+                stream.statuses.filter(locations=kwargs['locations'],track=kwargs['track'])
+            elif 'locations' in kwargs:
                 stream.statuses.filter(locations=kwargs['locations'])
             elif 'track' in kwargs:
                 stream.statuses.filter(track=kwargs['track'])
