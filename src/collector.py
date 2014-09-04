@@ -34,11 +34,13 @@ stream = SentinelStreamer(twitter_auth=twitter_auth,
 
 BBOX = os.environ['BBOX']
 TERMS = os.environ['SEARCHTERMS']
+USERS = os.environ['SEARCHUSERS']
+
 
 if COLLECTION_TYPE == 'geo':
     StreamForever(stream, locations=BBOX)
-elif COLLECTION_TYPE == 'both':
-    StreamForever(stream, track=TERMS, locations=BBOX)
+elif COLLECTION_TYPE == 'all':
+    StreamForever(stream, track=TERMS, locations=BBOX, follow=USERS)
 else:
     StreamForever(stream, track=TERMS)
 
